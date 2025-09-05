@@ -1,79 +1,37 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portafolio | Desarrollador Web</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Portafolio</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- NAVBAR -->
-  <header>
-    <nav class="navbar">
-      <h1 class="logo">MiPortafolio</h1>
-      <ul class="nav-links">
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#sobre-mi">Sobre mí</a></li>
-        <li><a href="#proyectos">Proyectos</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-      <div class="menu-toggle" id="menu-toggle">☰</div>
-    </nav>
-  </header>
+     <!--Menu Encabezado--> 
+     <div class="contenedor-header">
+      <header>
+        <div class="logo">
+             <a href="#">Carlos</a>
+        </div>
+        <nav id="nav">
+            <ul>
+              <li><a href="#inicio">Inicio</a></li>
+              <li><a href="#sobremi">Sobre Mi</a></li>
+              <li><a href="#Skills">Skills</a></li>
+              <li><a href="#cCurriculum">Curriculum</a></li>
+              <li><a href="#Portafolio">Portafolio</a></li>
+              <li><a href="#Contacto">Contacto</a></li>
+            </ul>
+        </nav>
+        
+        <div class="nav-responsive">
+              <i class="fa-solid fa-bars"></i>
+        </div>
 
-  <!-- INICIO -->
-  <section id="inicio" class="inicio">
-    <div class="inicio-texto">
-      <h2>Hola, soy <span>Carlos Cordero</span></h2>
-      <p>Desarrollador Web Frontend & Backend</p>
-      <a href="#proyectos" class="btn">Ver Proyectos</a>
-    </div>
-  </section>
+      </header>
+     </div>    
 
-  <!-- SOBRE MÍ -->
-  <section id="sobre-mi" class="sobre-mi">
-    <h2>Sobre mí</h2>
-    <p>
-      Soy un apasionado del desarrollo web con experiencia en HTML, CSS, 
-      JavaScript, y frameworks modernos. Me gusta crear aplicaciones rápidas, 
-      seguras y fáciles de usar.
-    </p>
-  </section>
-
-  <!-- PROYECTOS -->
-  <section id="proyectos" class="proyectos">
-    <h2>Proyectos</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Proyecto 1</h3>
-        <p>Descripción breve del proyecto.</p>
-      </div>
-      <div class="card">
-        <h3>Proyecto 2</h3>
-        <p>Descripción breve del proyecto.</p>
-      </div>
-      <div class="card">
-        <h3>Proyecto 3</h3>
-        <p>Descripción breve del proyecto.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACTO -->
-  <section id="contacto" class="contacto">
-    <h2>Contacto</h2>
-    <form id="contact-form">
-      <input type="text" placeholder="Tu nombre" required>
-      <input type="email" placeholder="Tu correo" required>
-      <textarea placeholder="Tu mensaje" required></textarea>
-      <button type="submit">Enviar</button>
-    </form>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Carlos Cordero | Todos los derechos reservados</p>
-  </footer>
-
-  <script src="main.js"></script>
+  
 </body>
 </html>
