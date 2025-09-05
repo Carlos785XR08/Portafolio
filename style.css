@@ -32,4 +32,31 @@ html{
     color: #1cb698;
     text-decoration: none;
 }
-.contenedor-header header
+.contenedor-header header .logo a:hover{
+    color: #fff;
+    transition: 1.2s;
+}
+.contenedor-header header ul{
+    display: flex;
+    list-style: none;
+}
+.contenedor-header header nav  ul li a {
+    text-align: none;
+    color: #fff;
+    margin: 0 15px;
+    padding: 3px;
+    transition: .5s;
+    text-decoration: none;
+}
+.contenedor-header header nav ul li a:hover{
+    color: #1cb698;
+    border-bottom: 2px solid #1cb698;
+}
+.nav-responsive{
+    background-color: #1cb698;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+}
