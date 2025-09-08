@@ -1,62 +1,193 @@
-@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Work+Sans:wght@100..900&display=swap'); 
-*{
-    box-sizing: border-box;
-    font-family: 'Work Sans';
+/* --- Variables de Color --- */
+:root {
+        /* Tema Oscuro */
+    --bg-color-dark: #121212;
+    --header-bg-dark: #1e1e1e;
+    --text-color-dark: #e0e0e0;
+    --primary-color-dark: #60a5fa; /* Un azul más brillante para el modo oscuro */
+    --shadow-dark: rgba(255, 255, 255, 0.1);
+    
+    /* Tema Claro (Azules y Oscuros) */
+    --bg-color-light: #f0f4f8;      /* Fondo principal (azul muy claro) */
+    --header-bg-light: #ffffff;   /* Fondo de header y tarjetas (blanco) */
+    --text-color-light: #102a43;    /* Texto principal (azul oscuro) */
+    --primary-color-light: #3b82f6; /* Color primario para links y acentos (azul) */
+    --shadow-light: rgba(0, 0, 0, 0.1);
+
+
+}
+
+/* --- Estilos base --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    padding: 0, ;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
 }
-html{
-    /* me permite deslizar cuando hago click en los links del menu */
-    scroll-behavior: smooth;
+
+body.light-mode {
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
 }
-/* MENU */
-.contenedor-header{
-    background: #1e2326;
+
+body.dark-mode {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+}
+
+/* --- Header y Navegación --- */
+header {
     position: fixed;
     width: 100%;
     top: 0;
-    left: 0;
-    z-index: 99;
+    z-index: 1000;
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
-.contenedor-header header{
-    max-width: 1100px;
-    margin: auto;
+
+body.light-mode header {
+    background-color: var(--header-bg-light);
+    box-shadow: 0 2px 4px var(--shadow-light);
+}
+
+body.dark-mode header {
+    background-color: var(--header-bg-dark);
+    box-shadow: 0 2px 4px var(--shadow-dark);
+}
+
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
 }
-.contenedor-header header .logo a {
-    font-family: 'Righteous';
-    font-size: 36px;
-    color: #1cb698;
+
+nav .logo {
+    font-weight: bold;
+    font-size: 1.5rem;
     text-decoration: none;
+    color: inherit;
 }
-.contenedor-header header .logo a:hover{
-    color: #fff;
-    transition: 1.2s;
-}
-.contenedor-header header ul{
-    display: flex;
-    list-style: none;
-}
-.contenedor-header header nav  ul li a {
-    text-align: none;
-    color: #fff;
-    margin: 0 15px;
-    padding: 3px;
-    transition: .5s;
-    text-decoration: none;
-}
-.contenedor-header header nav ul li a:hover{
-    color: #1cb698;
-    border-bottom: 2px solid #1cb698;
-}
-.nav-responsive{
-    background-color: #1cb698;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
+
+nav ul { list-style: none; display: flex; gap: 25px; margin: 0; padding: 0; }
+nav a { text-decoration: none; font-weight: bold; color: inherit; }
+body.light-mode nav a:hover { color: var(--primary-color-light); }
+body.dark-mode nav a:hover { color: var(--primary-color-dark); }
+
+#theme-toggle {
+    background: none;
+    border: none;
     cursor: pointer;
-    display: none;
+    font-size: 1.25rem;
+    color: inherit;
+}
+
+/* --- Secciones Principales --- */
+main { padding-top: 80px; }
+section {
+    padding: 5rem 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+#inicio { min-height: 80vh; display: flex; align-items: center; justify-content: center; }
+
+h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+body.light-mode h1 { color: var(--text-color-light); }
+body.dark-mode h1 { color: #ffffff; }
+
+h2 { font-size: 2.5rem; border-bottom: 3px solid; padding-bottom: 10px; display: inline-block; margin-bottom: 3rem; }
+body.light-mode h2 { border-color: var(--primary-color-light); }
+body.dark-mode h2 { border-color: var(--primary-color-dark); }
+
+
+/* --- Íconos de Redes Sociales --- */
+.social-links { margin-top: 1.5rem; }
+.social-links a {
+    font-size: 2rem;
+    margin: 0 15px;
+    transition: color 0.3s;
+    color: inherit;
+}
+body.light-mode .social-links a:hover { color: var(--primary-color-light); }
+body.dark-mode .social-links a:hover { color: var(--primary-color-dark); }
+
+/* --- Botón de CV y Contacto --- */
+.btn-cv, .btn-contact {
+    display: inline-block;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 1rem;
+    transition: transform 0.2s, background-color 0.3s;
+}
+.btn-cv:hover, .btn-contact:hover { transform: translateY(-3px); }
+
+body.light-mode .btn-cv, body.light-mode .btn-contact {
+    background-color: var(--primary-color-light);
+    color: white;
+}
+body.dark-mode .btn-cv, body.dark-mode .btn-contact {
+    background-color: var(--primary-color-dark);
+    color: #121212;
+}
+
+/* --- Portafolio --- */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    text-align: left;
+}
+.project {
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.project:hover { transform: translateY(-5px); }
+
+body.light-mode .project { background-color: var(--header-bg-light); box-shadow: 0 4px 6px var(--shadow-light); }
+body.dark-mode .project { background-color: var(--header-bg-dark); box-shadow: 0 4px 6px var(--shadow-dark); }
+
+/* --- AÑADIDO: Estilos para botones de contacto --- */
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Para que se apilen en pantallas pequeñas */
+    gap: 1rem; /* Espacio entre los botones */
+}
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+body.light-mode footer { background-color: #e2e8f0; }
+body.dark-mode footer { background-color: var(--header-bg-dark); }
+
+/* --- Menú Hamburguesa y Adaptabilidad Móvil --- */
+.menu-hamburguesa { display: none; flex-direction: column; cursor: pointer; background: transparent; border: none; }
+.menu-hamburguesa .barra { width: 25px; height: 3px; margin: 4px 0; transition: 0.4s; }
+body.light-mode .menu-hamburguesa .barra { background-color: var(--text-color-light); }
+body.dark-mode .menu-hamburguesa .barra { background-color: var(--text-color-dark); }
+
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        text-align: center;
+    }
+    body.light-mode nav ul { background-color: var(--header-bg-light); }
+    body.dark-mode nav ul { background-color: var(--header-bg-dark); }
+    
+    nav ul.mostrando { display: flex; }
+    nav ul li { padding: 1rem 0; }
+    .menu-hamburguesa { display: flex; }
 }

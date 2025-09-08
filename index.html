@@ -1,37 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <title>Portafolio</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
-<body>
-     <!--Menu Encabezado--> 
-     <div class="contenedor-header">
-      <header>
-        <div class="logo">
-             <a href="#">Carlos</a>
-        </div>
-        <nav id="nav">
-            <ul>
-              <li><a href="#inicio">Inicio</a></li>
-              <li><a href="#sobremi">Sobre Mi</a></li>
-              <li><a href="#Skills">Skills</a></li>
-              <li><a href="#cCurriculum">Curriculum</a></li>
-              <li><a href="#Portafolio">Portafolio</a></li>
-              <li><a href="#Contacto">Contacto</a></li>
+<body class="light-mode">
+
+    <header>
+        <nav>
+            <a href="#inicio" class="logo">MiLogo</a>
+            <button class="menu-hamburguesa" id="menu-hamburguesa">
+                <span class="barra"></span>
+                <span class="barra"></span>
+                <span class="barra"></span>
+            </button>
+            <ul id="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sobre-mi">Sobre Mí</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#portafolio">Portafolio</a></li>
+                <li><a href="#contacto">Contacto</a></li>
             </ul>
+            <button id="theme-toggle" aria-label="Cambiar tema">
+                <i class="fa-solid fa-moon"></i>
+            </button>
         </nav>
-        
-        <div class="nav-responsive">
-              <i class="fa-solid fa-bars"></i>
-        </div>
+    </header>
 
-      </header>
-     </div>    
+    <main>
+        <section id="inicio">
+            <div class="inicio-content">
+                <h1>Tu Nombre Aquí</h1>
+                <p>Desarrollador Web | Diseñador UX/UI | Apasionado por la Tecnología</p>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/tu-usuario" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/tu-usuario" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://wa.me/1234567890" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </section>
 
-  
+        <section id="sobre-mi">
+            <h2>Sobre Mí</h2>
+            <p>Aquí puedes escribir una breve descripción sobre ti, tu experiencia, tus pasiones y lo que te motiva. Habla de tu trayectoria profesional y tus intereses.</p>
+            <a href="ruta/a/tu-cv.pdf" download class="btn-cv">
+                Descargar CV <i class="fas fa-download"></i>
+            </a>
+        </section>
+
+        <section id="habilidades">
+            <h2>Habilidades Tecnológicas</h2>
+            <div class="skills-container">
+                <div class="skill-item">
+                    <i class="fab fa-html5 skill-icon"></i>
+                    <p>HTML5</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-css3-alt skill-icon"></i>
+                    <p>CSS3</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-js-square skill-icon"></i>
+                    <p>JavaScript</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-react skill-icon"></i>
+                    <p>React</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-node-js skill-icon"></i>
+                    <p>Node.js</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-git-alt skill-icon"></i>
+                    <p>Git</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-figma skill-icon"></i>
+                    <p>Figma</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-python skill-icon"></i>
+                    <p>Python</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="portafolio">
+            <h2>Portafolio de Proyectos</h2>
+            <div class="gallery">
+                <div class="project">
+                    <h3>Proyecto 1</h3>
+                    <p>Descripción breve del proyecto 1. Tecnologías usadas: HTML, CSS, JS.</p>
+                </div>
+                <div class="project">
+                    <h3>Proyecto 2</h3>
+                    <p>Descripción breve del proyecto 2. Tecnologías usadas: React, Node.js.</p>
+                </div>
+                <div class="project">
+                    <h3>Proyecto 3</h3>
+                    <p>Descripción breve del proyecto 3. Tecnologías usadas: Figma, CSS Grid.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto">
+    <h2>Contacto</h2>
+    <p>¿Interesado en colaborar? ¡Ponte en contacto conmigo!</p>
+    <div class="contact-buttons">
+        <a href="mailto:tuemail@example.com" class="btn-contact">
+            <i class="fas fa-paper-plane"></i> Enviar Correo
+        </a>
+        <a href="https://wa.me/5211234567890" target="_blank" class="btn-contact">
+            <i class="fab fa-whatsapp"></i> Enviar WhatsApp
+        </a>
+    </div>
+</section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Tu Nombre | Diseñado con 💙</p>
+    </footer>
+
+    <script src="main.js"></script>
 </body>
 </html>
