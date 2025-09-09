@@ -1,193 +1,433 @@
-/* --- Variables de Color --- */
 :root {
-        /* Tema Oscuro */
-    --bg-color-dark: #121212;
-    --header-bg-dark: #1e1e1e;
-    --text-color-dark: #e0e0e0;
-    --primary-color-dark: #60a5fa; /* Un azul más brillante para el modo oscuro */
-    --shadow-dark: rgba(255, 255, 255, 0.1);
+    --dark-bg: #121212;
+    --dark-text: #e0e0e0;
+    --dark-accent: #6200ea;
+    --dark-card-bg: #1e1e1e;
+    --dark-card-hover: #2c2c2c;
     
-    /* Tema Claro (Azules y Oscuros) */
-    --bg-color-light: #f0f4f8;      /* Fondo principal (azul muy claro) */
-    --header-bg-light: #ffffff;   /* Fondo de header y tarjetas (blanco) */
-    --text-color-light: #102a43;    /* Texto principal (azul oscuro) */
-    --primary-color-light: #3b82f6; /* Color primario para links y acentos (azul) */
-    --shadow-light: rgba(0, 0, 0, 0.1);
-
-
+    --light-bg: #f4f4f4;
+    --light-text: #333;
+    --light-accent: #007bff;
+    --light-card-bg: #fff;
+    --light-card-hover: #eaeaea;
 }
 
-/* --- Estilos base --- */
+/* Estilos globales y para el tema */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
     margin: 0;
-    padding: 0;
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.5s, color 0.5s;
 }
 
-body.light-mode {
-    background-color: var(--bg-color-light);
-    color: var(--text-color-light);
+body.dark-theme {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
 }
 
-body.dark-mode {
-    background-color: var(--bg-color-dark);
-    color: var(--text-color-dark);
+body.light-theme {
+    background-color: var(--light-bg);
+    color: var(--light-text);
 }
 
-/* --- Header y Navegación --- */
 header {
-    position: fixed;
-    width: 100%;
+    background: var(--dark-card-bg);
+    padding: 1rem 0;
+    position: sticky;
     top: 0;
     z-index: 1000;
-    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-body.light-mode header {
-    background-color: var(--header-bg-light);
-    box-shadow: 0 2px 4px var(--shadow-light);
+body.light-theme header {
+    background: var(--light-card-bg);
 }
 
-body.dark-mode header {
-    background-color: var(--header-bg-dark);
-    box-shadow: 0 2px 4px var(--shadow-dark);
-}
-
-nav {
+/* Navbar principal */
+.navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Centrado por defecto en desktop */
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem 1.5rem;
+    gap: 2rem;
+    position: relative; /* Para posicionar el menú de hamburguesa */
 }
 
-nav .logo {
-    font-weight: bold;
-    font-size: 1.5rem;
+/* Enlaces de navegación */
+.nav-links {
+    display: flex; /* Por defecto, en línea para desktop */
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--dark-text);
     text-decoration: none;
-    color: inherit;
+    font-weight: bold;
+    padding: 0.5rem 1rem; /* Añadir padding para mejor área de click */
 }
 
-nav ul { list-style: none; display: flex; gap: 25px; margin: 0; padding: 0; }
-nav a { text-decoration: none; font-weight: bold; color: inherit; }
-body.light-mode nav a:hover { color: var(--primary-color-light); }
-body.dark-mode nav a:hover { color: var(--primary-color-dark); }
+body.light-theme .nav-links a {
+    color: var(--light-text);
+}
 
+.nav-links a:hover {
+    color: var(--dark-accent);
+}
+
+body.light-theme .nav-links a:hover {
+    color: var(--light-accent);
+}
+
+/* Botón de cambio de tema */
 #theme-toggle {
     background: none;
     border: none;
+    color: var(--dark-text);
     cursor: pointer;
-    font-size: 1.25rem;
-    color: inherit;
+    font-size: 1.2rem;
 }
 
-/* --- Secciones Principales --- */
-main { padding-top: 80px; }
-section {
-    padding: 5rem 1.5rem;
-    max-width: 1000px;
-    margin: 0 auto;
+body.light-theme #theme-toggle {
+    color: var(--light-text);
+}
+
+/* Botón de menú de hamburguesa - Por defecto oculto en desktop */
+.hamburger-menu {
+    display: none; /* Oculto por defecto */
+    background: none;
+    border: none;
+    color: var(--dark-text);
+    font-size: 1.8rem;
+    cursor: pointer;
+    position: absolute; /* Posicionado en la esquina izquierda */
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+body.light-theme .hamburger-menu {
+    color: var(--light-text);
+}
+
+/* Secciones principales */
+main section {
+    padding: 4rem 1rem;
+    max-width: 900px;
+    margin: auto;
     text-align: center;
 }
-#inicio { min-height: 80vh; display: flex; align-items: center; justify-content: center; }
 
-h1 { font-size: 3rem; margin-bottom: 0.5rem; }
-body.light-mode h1 { color: var(--text-color-light); }
-body.dark-mode h1 { color: #ffffff; }
-
-h2 { font-size: 2.5rem; border-bottom: 3px solid; padding-bottom: 10px; display: inline-block; margin-bottom: 3rem; }
-body.light-mode h2 { border-color: var(--primary-color-light); }
-body.dark-mode h2 { border-color: var(--primary-color-dark); }
-
-
-/* --- Íconos de Redes Sociales --- */
-.social-links { margin-top: 1.5rem; }
-.social-links a {
-    font-size: 2rem;
-    margin: 0 15px;
-    transition: color 0.3s;
-    color: inherit;
-}
-body.light-mode .social-links a:hover { color: var(--primary-color-light); }
-body.dark-mode .social-links a:hover { color: var(--primary-color-dark); }
-
-/* --- Botón de CV y Contacto --- */
-.btn-cv, .btn-contact {
+/* Botón general */
+.boton {
+    float: right;
     display: inline-block;
-    padding: 12px 24px;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-    margin-top: 1rem;
-    transition: transform 0.2s, background-color 0.3s;
-}
-.btn-cv:hover, .btn-contact:hover { transform: translateY(-3px); }
-
-body.light-mode .btn-cv, body.light-mode .btn-contact {
-    background-color: var(--primary-color-light);
+    padding:0.75rem 1.5rem ;
+    background: var(--dark-accent);
     color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
+    
 }
-body.dark-mode .btn-cv, body.dark-mode .btn-contact {
-    background-color: var(--primary-color-dark);
-    color: #121212;
+.btn {
+    
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: var(--dark-accent);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
+    
 }
 
-/* --- Portafolio --- */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+body.light-theme .btn {
+    background: var(--light-accent);
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+/* Enlaces sociales */
+.social-links {
+    margin-top: 1rem;
+}
+
+.social-links a {
+    color: var(--dark-text);
+    font-size: 2rem;
+    margin: 0 0.5rem;
+    transition: color 0.3s;
+}
+
+body.light-theme .social-links a {
+    color: var(--light-text);
+}
+
+.social-links a:hover {
+    color: var(--dark-accent);
+}
+
+body.light-theme .social-links a:hover {
+    color: var(--light-accent);
+}
+
+/* Habilidades - Menú desplegable */
+#habilidades {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dropdown-menu {
+    position: relative;
+    display: inline-block;
+    margin: 1rem 0;
+    width: 100%;
+    max-width: 300px;
+}
+
+.dropdown-btn {
+    background-color: var(--dark-card-bg);
+    color: var(--dark-text);
+    padding: 1rem;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    width: 100%;
     text-align: left;
+    transition: background-color 0.3s;
 }
-.project {
-    padding: 1.5rem;
+
+body.light-theme .dropdown-btn {
+    background-color: var(--light-card-bg);
+    color: var(--light-text);
+}
+
+.dropdown-btn:hover {
+    background-color: var(--dark-card-hover);
+}
+
+body.light-theme .dropdown-btn:hover {
+    background-color: var(--light-card-hover);
+}
+
+.dropdown-content {
+    display: none;
+    flex-direction: column;
+    background-color: var(--dark-card-bg);
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    width: 100%;
+}
+
+body.light-theme .dropdown-content {
+    background-color: var(--light-card-bg);
+}
+
+.dropdown-content span {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content span:hover {
+    background-color: var(--dark-card-hover);
+}
+
+body.light-theme .dropdown-content span:hover {
+    background-color: var(--light-card-hover);
+}
+
+/* Portafolio - Carrusel */
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.project-card {
+    flex: 0 0 100%;
+    padding: 1rem;
+    text-align: center;
+}
+
+.project-card img {
+    max-width: 100%;
+    height: auto;
     border-radius: 8px;
-    transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 1rem;
 }
-.project:hover { transform: translateY(-5px); }
 
-body.light-mode .project { background-color: var(--header-bg-light); box-shadow: 0 4px 6px var(--shadow-light); }
-body.dark-mode .project { background-color: var(--header-bg-dark); box-shadow: 0 4px 6px var(--shadow-dark); }
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    transition: background-color 0.3s;
+}
 
-/* --- AÑADIDO: Estilos para botones de contacto --- */
+.carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+/* Contacto */
 .contact-buttons {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Para que se apilen en pantallas pequeñas */
-    gap: 1rem; /* Espacio entre los botones */
+    gap: 1rem;
+    margin-top: 1rem;
 }
-/* --- Footer --- */
+
+.contact-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--dark-card-bg);
+    color: var(--dark-text);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+body.light-theme .contact-btn {
+    background: var(--light-card-bg);
+    color: var(--light-text);
+}
+
+.contact-btn:hover {
+    background: var(--dark-card-hover);
+}
+
+body.light-theme .contact-btn:hover {
+    background: var(--light-card-hover);
+}
+
+/* Pie de página */
 footer {
     text-align: center;
-    padding: 2rem;
+    padding: 2rem 1rem;
+    background: var(--dark-card-bg);
     margin-top: 2rem;
 }
-body.light-mode footer { background-color: #e2e8f0; }
-body.dark-mode footer { background-color: var(--header-bg-dark); }
 
-/* --- Menú Hamburguesa y Adaptabilidad Móvil --- */
-.menu-hamburguesa { display: none; flex-direction: column; cursor: pointer; background: transparent; border: none; }
-.menu-hamburguesa .barra { width: 25px; height: 3px; margin: 4px 0; transition: 0.4s; }
-body.light-mode .menu-hamburguesa .barra { background-color: var(--text-color-light); }
-body.dark-mode .menu-hamburguesa .barra { background-color: var(--text-color-dark); }
+body.light-theme footer {
+    background: var(--light-card-bg);
+}
 
+/* Media Queries para responsividad */
 @media (max-width: 768px) {
-    h1 { font-size: 2.5rem; }
-    nav ul {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        text-align: center;
+    /* Mostrar el botón de hamburguesa y ocultar enlaces por defecto */
+    .hamburger-menu {
+        display: block;
     }
-    body.light-mode nav ul { background-color: var(--header-bg-light); }
-    body.dark-mode nav ul { background-color: var(--header-bg-dark); }
-    
-    nav ul.mostrando { display: flex; }
-    nav ul li { padding: 1rem 0; }
-    .menu-hamburguesa { display: flex; }
+
+    .navbar {
+        justify-content: space-between; /* Ajustar el navbar para móvil */
+        padding: 1rem;
+    }
+
+    .nav-links {
+        display: none; /* Ocultar los enlaces por defecto en móvil */
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* Debajo del header */
+        left: 0;
+        width: 100%;
+        background-color: var(--dark-card-bg);
+        box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+        padding: 1rem 0;
+    }
+
+    body.light-theme .nav-links {
+        background-color: var(--light-card-bg);
+    }
+
+    .nav-links.active { /* Clase para mostrar el menú */
+        display: flex;
+    }
+
+    .nav-links a {
+        width: 100%;
+        text-align: center;
+        padding: 0.75rem 0;
+    }
+
+    /* Ajustar la posición del botón de cambio de tema en móvil */
+    #theme-toggle {
+        position: static; /* Restablecer posición para que fluya con nav-links */
+        margin-left: auto; /* Empujar a la derecha dentro de .nav-links */
+        order: 1; /* Para que aparezca al final de los enlaces si el menú está activo */
+    }
+
+    /* Ocultar el botón de descargar CV principal y mostrar el específico de móvil */
+    .download-btn:not(.mobile-download) {
+        display: none;
+    }
+    .mobile-download {
+        display: inline-block;
+        margin-top: 2rem; /* Separación si está en una sección como inicio */
+    }
+}
+
+#scrollToTopBtn {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: var(--dark-accent);
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    opacity: 0.7; /* Semi-transparente por defecto */
+    transition: opacity 0.3s, background-color 0.3s;
+}
+
+#scrollToTopBtn:hover {
+    opacity: 1; /* Opacidad completa al pasar el mouse */
+    background-color: var(--light-accent); /* Cambia de color al pasar el mouse */
+}
+
+/* Estilos para el tema claro */
+body.light-theme #scrollToTopBtn {
+    background-color: var(--light-accent);
+}
+
+body.light-theme #scrollToTopBtn:hover {
+    background-color: var(--dark-accent);
+}
+
+/* Opcional: para el icono Font Awesome, si lo usas */
+#scrollToTopBtn i {
+    pointer-events: none; /* Asegura que el clic funcione en el botón */
 }
